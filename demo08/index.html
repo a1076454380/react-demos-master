@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<meta charset="UTF-8"/>
+  	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+			var LikeButton = React.createClass({
+			  getInitialState: function() {
+			    return {liked: false,dong:20};
+			  },
+			  handleClick: function(event) {
+			    this.setState({liked: !this.state.liked});
+			  },
+			  addyear:function(event){
+			  	this.setState({dong:this.state.dong+1})
+			  },
+			  render: function() {
+			    var text = this.state.liked ? 'like' : 'haven\'t liked';
+			    return (
+			      <p>
+			        You {text} this. Click to toggle.<span onClick={this.addyear}>you { this.state.dong } years old;</span>
+			      </p>
+			    );
+			  }
+			});
+			
+			ReactDOM.render(
+			  <LikeButton />,
+			  document.getElementById('example')
+			);
+    </script>
+  </body>
+</html>
+
